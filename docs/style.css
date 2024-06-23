@@ -64,7 +64,9 @@ body {
     flex-direction: column;
 }
 
-section {
+section,
+header,
+footer {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -176,14 +178,19 @@ a:active {
 }
 
 .email-container {
-    margin-top: 12px;
+    margin-top: 20px;
     color: var(--fg-muted-color);
     text-shadow: 0 0 10px var(--accent-color-dark);
+    font-style: normal;
 }
 
 /* Hopefully prevent email scraping. */
-.email-container > p > span > b {
+.email-container > span > b {
     display: none;
+}
+
+small {
+    color: var(--fg-muted-color);
 }
 
 @keyframes pfp-idle-anim {
