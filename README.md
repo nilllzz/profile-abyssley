@@ -1,2 +1,3 @@
-# profile-abyssley
-Abyssley profile page
+# Abyssley profile page
+
+Simple profile page for [Abyssley](https://www.twitch.tv/abyssley).
