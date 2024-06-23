@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #000;
+    --fg-color: #fff;
+    --fg-muted-color: #beb9f3;
+    --accent-color: #474471;
+    --accent-color-transparent: rgb(71, 68, 113, 0.5);
+    --accent-color-dark: #2a293d;
+
+    --max-content-width: 800px;
+}
+
+::selection {
+    color: var(--fg-muted-color);
+    background-color: var(--accent-color-dark);
+}
+
+@font-face {
+    font-family: "Oxygen";
+    src: url("oxygen.ttf"), sans-serif;
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: Oxygen;
+}
+
+body {
+    margin: 0;
+    position: relative;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-video {
+    filter: blur(45px) brightness(0.65) hue-rotate(40deg);
+    width: 100%;
+    min-width: 800px;
+}
+
+.container {
+    padding-top: 20px;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 36px;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+}
+
+.pfp {
+    margin-top: 4px;
+
+    max-width: 220px;
+    max-height: 220px;
+
+    animation-name: pfp-idle-anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+    border-width: 6px;
+    border-color: var(--accent-color);
+    border-style: solid;
+
+    background-color: var(--accent-color-dark);
+
+    filter: drop-shadow(0 0 16px var(--accent-color-dark));
+
+    transition: border-radius 0.1s ease;
+}
+
+.pfp:hover,
+.pfp:active {
+    border-radius: 8px;
+}
+
+h1 {
+    color: var(--fg-muted-color);
+    font-size: 48px;
+    text-shadow: 0 0 10px var(--accent-color-dark);
+
+    margin-bottom: 24px;
+}
+
+h2 {
+    color: var(--fg-color);
+    font-size: 24px;
+    text-shadow: 0 0 10px var(--accent-color-dark);
+
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    width: 100%;
+    height: 4px;
+    background-color: var(--fg-muted-color);
+    border-radius: 4px;
+    max-width: var(--max-content-width);
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.link-list {
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.link-list > a {
+    color: var(--fg-muted-color);
+    text-shadow: 0 0 10px var(--accent-color-dark);
+    fill: var(--fg-muted-color);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 25%;
+
+    transition: background-color 0.1s ease, border-radius 0.1s ease, transform 0.1s ease;
+}
+
+.link-list > a > svg {
+    width: 48px;
+    height: 48px;
+
+    filter: drop-shadow(0 0 10px var(--accent-color-dark));
+}
+
+a:hover {
+    border-radius: 50%;
+    background-color: var(--accent-color-transparent);
+
+    transform: scale(1.1);
+}
+
+a:active {
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.email-container {
+    margin-top: 12px;
+    color: var(--fg-muted-color);
+    text-shadow: 0 0 10px var(--accent-color-dark);
+}
+
+/* Hopefully prevent email scraping. */
+.email-container > p > span > b {
+    display: none;
+}
+
+@keyframes pfp-idle-anim {
+    0% {
+        transform: none;
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@media (orientation: portrait) {
+    .bg-video {
+        margin-left: 50px;
+        transform: rotateZ(-90deg);
+    }
+}
